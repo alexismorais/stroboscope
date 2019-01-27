@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 <style>
@@ -8,22 +9,38 @@
 <body id="oui">
 
 
-<button onclick="stob()">Start</button>
+<button onclick="strob()">Start</button>
+<button onclick="stop()">Stop</button>
+<button onclick="blanc()">Blanc</button>
 
-<script>
-couleur = ["red","blue","green"];
-function stob() {
-
-   document.getElementById("oui").style.backgroundColor='red';
-
-}
-function start() {
-
-setTimeout
-
-}
-
-</script>
 
 </body>
 </html>
+
+<script>
+var couleur = ["red","blue","green","pink","yellow","orange"];
+var i;
+var stop;
+var timer;
+
+function Random(max){
+	return Math.floor(Math.random() * Math.floor(max));
+}
+
+function strob(){
+	i = Random(6);
+	document.getElementById("oui").style.backgroundColor=couleur[i];
+	timer = setTimeout(strob,10);
+}
+
+function stop(){
+	clearTimeout(timer);
+}
+
+function blanc(){
+	clearTimeout(timer);
+	document.getElementById("oui").style.backgroundColor="white";
+}
+
+
+</script>
